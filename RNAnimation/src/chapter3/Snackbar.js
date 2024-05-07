@@ -1,5 +1,6 @@
 import React, {useRef} from 'react';
 import {Animated, View, Text, Button, SafeAreaView, Easing} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 // layouts
 // 스타일링
@@ -47,7 +48,7 @@ export default function Snackbar() {
             borderRadius: 4,
             alignItems: 'center',
           }}>
-          <Text style={{color: 'white'}}>ICON</Text>
+          <Icon name="checkmark-circle" color="white" size={24} />
           <Text style={{color: 'white', fontSize: 15, marginLeft: 10}}>
             오류가 발생했습니다.
           </Text>
