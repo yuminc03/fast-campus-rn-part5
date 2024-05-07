@@ -1,5 +1,5 @@
 import React, {useRef} from 'react';
-import {Animated, Button, Text, Easing} from 'react-native';
+import {Animated, Button, Easing} from 'react-native';
 
 export default function AnimatedTiming() {
   const translateXAnim = useRef(new Animated.Value(-100)).current;
