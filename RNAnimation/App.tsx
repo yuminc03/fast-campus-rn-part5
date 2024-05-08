@@ -13,13 +13,14 @@ import Snackbar from './src/chapter3/Snackbar';
 import DrawerMenu from './src/chapter3/DrawerMenu';
 import Collapse from './src/chapter3/Collapse';
 import Progressbar from './src/chapter3/Progressbar';
+import Skeleton from './src/chapter3/Skeleton';
 
 const App = () => {
   return (
     // <SafeAreaView
     //   style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
     <SafeAreaView style={{flex: 1}}>
-      <Progressbar />
+      <Skeleton />
     </SafeAreaView>
   );
 };
