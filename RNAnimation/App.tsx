@@ -9,18 +9,22 @@ import AnimatedDecay from './src/chapter2/AnimatedDecay';
 import AnimatedComposing from './src/chapter2/AnimatedComposing';
 import AnimatedOtherMethod from './src/chapter2/AnimatedOtherMethod';
 import AnimatedProperty from './src/chapter2/AnimatedProperty';
+
 import Snackbar from './src/chapter3/Snackbar';
 import DrawerMenu from './src/chapter3/DrawerMenu';
 import Collapse from './src/chapter3/Collapse';
 import Progressbar from './src/chapter3/Progressbar';
 import Skeleton from './src/chapter3/Skeleton';
+import SnowAnimation from './src/chapter3/SnowAnimation';
+
+import LayoutAnimationIntro from './src/chapter4/LayoutAnimationIntro';
 
 const App = () => {
   return (
     // <SafeAreaView
     //   style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
     <SafeAreaView style={{flex: 1}}>
-      <Skeleton />
+      <LayoutAnimationIntro />
     </SafeAreaView>
   );
 };
