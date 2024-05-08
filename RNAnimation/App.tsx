@@ -18,14 +18,15 @@ import Skeleton from './src/chapter3/Skeleton';
 import SnowAnimation from './src/chapter3/SnowAnimation';
 
 import LayoutAnimationIntro from './src/chapter4/LayoutAnimationIntro';
+import LayoutAnimationPageHeader from './src/chapter4/LayoutAnimationPageHeader';
 
 const App = () => {
   return (
     // <SafeAreaView
     //   style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-    <SafeAreaView style={{flex: 1}}>
-      <LayoutAnimationIntro />
-    </SafeAreaView>
+    // <SafeAreaView style={{flex: 1}}>
+    <LayoutAnimationPageHeader />
+    // </SafeAreaView>
   );
 };
 
