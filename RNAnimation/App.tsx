@@ -10,14 +10,15 @@ import AnimatedComposing from './src/chapter2/AnimatedComposing';
 import AnimatedOtherMethod from './src/chapter2/AnimatedOtherMethod';
 import AnimatedProperty from './src/chapter2/AnimatedProperty';
 import Snackbar from './src/chapter3/Snackbar';
+import DrawerMenu from './src/chapter3/DrawerMenu';
 
 const App = () => {
   return (
     // <SafeAreaView
     //   style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-    <SafeAreaView style={{flex: 1}}>
-      <Snackbar />
-    </SafeAreaView>
+    // <SafeAreaView style={{flex: 1}}>
+    <DrawerMenu />
+    // </SafeAreaView>
   );
 };
 
