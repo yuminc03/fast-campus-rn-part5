@@ -12,14 +12,15 @@ import AnimatedProperty from './src/chapter2/AnimatedProperty';
 import Snackbar from './src/chapter3/Snackbar';
 import DrawerMenu from './src/chapter3/DrawerMenu';
 import Collapse from './src/chapter3/Collapse';
+import Progressbar from './src/chapter3/Progressbar';
 
 const App = () => {
   return (
     // <SafeAreaView
     //   style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-    // <SafeAreaView style={{flex: 1}}>
-    <Collapse />
-    // </SafeAreaView>
+    <SafeAreaView style={{flex: 1}}>
+      <Progressbar />
+    </SafeAreaView>
   );
 };
 
