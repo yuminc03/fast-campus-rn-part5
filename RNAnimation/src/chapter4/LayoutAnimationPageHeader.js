@@ -6,16 +6,23 @@ import {
   ScrollView,
   StatusBar,
   SafeAreaView,
+  Platform,
+  UIManager,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+
+if (Platform.OS === 'android') {
+  if (UIManager.setLayoutAnimationEnabledExperimental) {
+    UIManager.setLayoutAnimationEnabledExperimental(true);
+  }
+}
 
 export default function LayoutAnimationPageHeader() {
   const [expanded, setExpanded] = useState(true);
 
   const onScroll = e => {
-    console.log(e.nativeEvent.contentOffset.y);
     const y = e.nativeEvent.contentOffset.y;
-
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     if (y > 10) {
       setExpanded(false);
     } else {
@@ -66,27 +73,35 @@ export default function LayoutAnimationPageHeader() {
           <View
             style={{
               backgroundColor: '#333',
-              height: 350,
+              height: 300,
               position: 'relative',
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-            <View style={{position: 'absolute', bottom: -100}}>
-              
-            </View>
             <View
               style={{
-                bottom: -30,
-                backgroundColor: '#222',
-                width: 160,
-                height: 160,
-                borderRadius: 100,
-                justifyContent: 'center',
+                position: 'absolute',
+                bottom: -100,
                 alignItems: 'center',
               }}>
-              <Icon name="person" size={100} color="#333" />
+              <View
+                style={{
+                  backgroundColor: '#222',
+                  width: 160,
+                  height: 160,
+                  borderRadius: 100,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}>
+                <Icon name="person" size={100} color="#333" />
+              </View>
+              <Text style={{fontSize: 20, marginTop: 20, fontWeight: 'bold'}}>
+                Lonalia
+              </Text>
+              <Text style={{fontSize: 16, marginTop: 10}}>
+                힘들면 잠시 쉬어도 돼!
+              </Text>
             </View>
-            <Text>큰 프로필 이미지</Text>
           </View>
         )}
       </ScrollView>
