@@ -27,11 +27,12 @@ import PanresponderIntro from './src/chapter6/PanresponderIntro';
 import PanresponderBall from './src/chapter6/PanresponderBall';
 import PanresponderModal from './src/chapter6/PanresponderModal';
 import PanresponderBannerSlider from './src/chapter6/PanresponderBannerSlider';
+import PanresponderFontSlider from './src/chapter6/PanresponderFontSlider';
 
 const App = () => {
   return (
     <SafeAreaProvider>
-      <PanresponderBannerSlider />
+      <PanresponderFontSlider />
     </SafeAreaProvider>
   );
 };
