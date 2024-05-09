@@ -22,15 +22,10 @@ import LayoutAnimationPageHeader from './src/chapter4/LayoutAnimationPageHeader'
 import LayoutAnimationCollapse from './src/chapter4/LayoutAnimationCollapse';
 
 import InteractionManagerIntro from './src/chapter5/InteractionManagerIntro';
+import PanresponderIntro from './src/chapter6/PanresponderIntro';
 
 const App = () => {
-  return (
-    // <SafeAreaView
-    //   style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-    // <SafeAreaView style={{flex: 1}}>
-    <InteractionManagerIntro />
-    // </SafeAreaView>
-  );
+  return <PanresponderIntro />;
 };
 
 export default App;
