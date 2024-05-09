@@ -21,12 +21,14 @@ import LayoutAnimationIntro from './src/chapter4/LayoutAnimationIntro';
 import LayoutAnimationPageHeader from './src/chapter4/LayoutAnimationPageHeader';
 import LayoutAnimationCollapse from './src/chapter4/LayoutAnimationCollapse';
 
+import InteractionManagerIntro from './src/chapter5/InteractionManagerIntro';
+
 const App = () => {
   return (
     // <SafeAreaView
     //   style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
     // <SafeAreaView style={{flex: 1}}>
-    <LayoutAnimationCollapse />
+    <InteractionManagerIntro />
     // </SafeAreaView>
   );
 };
