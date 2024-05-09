@@ -1,34 +1,71 @@
-import React, {useState} from 'react';
-import {View, Text, TouchableWithoutFeedback, PanResponder} from 'react-native';
+import React, {useRef, useState} from 'react';
+import {
+  View,
+  Text,
+  TouchableWithoutFeedback,
+  PanResponder,
+  Animated,
+} from 'react-native';
+
+const BOX = 50;
+const CIRCLE = 20;
+const FONT = [
+  {
+    title: {fontSize: 20, lineHeight: 32},
+    body: {fontSize: 12},
+  },
+  {
+    title: {fontSize: 24, lineHeight: 38},
+    body: {fontSize: 14},
+  },
+  {
+    title: {fontSize: 30, lineHeight: 40},
+    body: {fontSize: 15},
+  },
+  {
+    title: {fontSize: 36, lineHeight: 50},
+    body: {fontSize: 19},
+  },
+];
 
 export default function PanresponderFontSlider() {
   const [step, setStep] = useState(0);
+  const circleAnim = useRef(new Animated.Value(0)).current;
+
+  const panResponder = PanResponder.create({
+    onMoveShouldSetPanResponder: () => true,
+    onStartShouldSetPanResponder: () => true,
+    onPanResponderStart: (event, gestureState) => {
+      circleAnim.setValue(step * BOX);
+    },
+    onPanResponderMove: (event, gestureState) => {
+      circleAnim.setValue(gestureState.dx + step * BOX);
+    },
+    onPanResponderEnd: (event, gestureState) => {
+      const fontStep = step + Math.round(gestureState.dx / 50);
+      const toValue = fontStep * BOX;
+      setStep(fontStep);
+
+      Animated.spring(circleAnim, {
+        toValue,
+        friction: 7,
+        tension: 50,
+        duration: 100,
+        useNativeDriver: true,
+      }).start();
+    },
+  });
 
   const onPress = index => {
-    console.log(index);
     setStep(index);
+    Animated.spring(circleAnim, {
+      toValue: index * BOX,
+      friction: 7,
+      tension: 50,
+      duration: 100,
+      useNativeDriver: true,
+    }).start();
   };
-
-  const BOX = 50;
-  const CIRCLE = 20;
-  const FONT = [
-    {
-      title: {fontSize: 20, lineHeight: 32},
-      body: {fontSize: 12},
-    },
-    {
-      title: {fontSize: 24, lineHeight: 38},
-      body: {fontSize: 14},
-    },
-    {
-      title: {fontSize: 30, lineHeight: 40},
-      body: {fontSize: 15},
-    },
-    {
-      title: {fontSize: 36, lineHeight: 50},
-      body: {fontSize: 19},
-    },
-  ];
 
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
@@ -80,14 +117,17 @@ export default function PanresponderFontSlider() {
               </TouchableWithoutFeedback>
             ))}
           </View>
-          <View
+
+          <Animated.View
+            {...panResponder.panHandlers}
             style={{
-              width: 20,
-              height: 20,
+              width: CIRCLE,
+              height: CIRCLE,
               backgroundColor: '#333',
               position: 'absolute',
-              left: BOX / 2 - CIRCLE / 2 + step * BOX,
+              left: BOX / 2 - CIRCLE / 2,
               borderRadius: 20,
+              transform: [{translateX: circleAnim}],
             }}
           />
         </View>
