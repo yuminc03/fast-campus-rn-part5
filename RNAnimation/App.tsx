@@ -1,5 +1,6 @@
 import React from 'react';
 import {SafeAreaView} from 'react-native';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 import AnimatedCoomponents from './src/chapter2/AnimatedComponents';
 import AnimatedValue from './src/chapter2/AnimatedValue';
@@ -24,9 +25,14 @@ import LayoutAnimationCollapse from './src/chapter4/LayoutAnimationCollapse';
 import InteractionManagerIntro from './src/chapter5/InteractionManagerIntro';
 import PanresponderIntro from './src/chapter6/PanresponderIntro';
 import PanresponderBall from './src/chapter6/PanresponderBall';
+import PanresponderModal from './src/chapter6/PanresponderModal';
 
 const App = () => {
-  return <PanresponderBall />;
+  return (
+    <SafeAreaProvider>
+      <PanresponderModal />
+    </SafeAreaProvider>
+  );
 };
 
 export default App;
