@@ -19,13 +19,14 @@ import SnowAnimation from './src/chapter3/SnowAnimation';
 
 import LayoutAnimationIntro from './src/chapter4/LayoutAnimationIntro';
 import LayoutAnimationPageHeader from './src/chapter4/LayoutAnimationPageHeader';
+import LayoutAnimationCollapse from './src/chapter4/LayoutAnimationCollapse';
 
 const App = () => {
   return (
     // <SafeAreaView
     //   style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
     // <SafeAreaView style={{flex: 1}}>
-    <LayoutAnimationPageHeader />
+    <LayoutAnimationCollapse />
     // </SafeAreaView>
   );
 };
