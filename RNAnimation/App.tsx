@@ -23,9 +23,10 @@ import LayoutAnimationCollapse from './src/chapter4/LayoutAnimationCollapse';
 
 import InteractionManagerIntro from './src/chapter5/InteractionManagerIntro';
 import PanresponderIntro from './src/chapter6/PanresponderIntro';
+import PanresponderBall from './src/chapter6/PanresponderBall';
 
 const App = () => {
-  return <PanresponderIntro />;
+  return <PanresponderBall />;
 };
 
 export default App;
