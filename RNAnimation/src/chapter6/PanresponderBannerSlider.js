@@ -13,6 +13,43 @@ const {width} = Dimensions.get('window');
 export default function PanresponderBannerSlider() {
   const [focus, setFocus] = useState(0);
   const bannerAnim = useRef(new Animated.Value(0)).current;
+  const pendingRef = useRef(true);
+
+  const panresponder = PanResponder.create({
+    onMoveShouldSetPanResponder: () => true,
+    onPanResponderMove: (event, gestureState) => {
+      const toRight = gestureState.dx < -80;
+      const toLeft = gestureState.dx > 80;
+
+      if (toRight && pendingRef.current && focus < 3) {
+        pendingRef.current = false;
+        setFocus(focus + 1);
+        Animated.timing(bannerAnim, {
+          toValue: -(focus + 1) * width,
+          duration: 500,
+          useNativeDriver: true,
+        }).start(({finished}) => {
+          if (finished) {
+            pendingRef.current = true;
+          }
+        });
+      }
+
+      if (toLeft && pendingRef.current && focus > 0) {
+        pendingRef.current = false;
+        setFocus(focus - 1);
+        Animated.timing(bannerAnim, {
+          toValue: -(focus - 1) * width,
+          duration: 500,
+          useNativeDriver: true,
+        }).start(({finished}) => {
+          if (finished) {
+            pendingRef.current = true;
+          }
+        });
+      }
+    },
+  });
 
   const onButtonNavigation = index => {
     setFocus(index);
@@ -27,6 +64,7 @@ export default function PanresponderBannerSlider() {
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       {/* content box */}
       <Animated.View
+        {...panresponder.panHandlers}
         style={{
           position: 'absolute',
           left: 0,
@@ -47,7 +85,7 @@ export default function PanresponderBannerSlider() {
               justifyContent: 'center',
               alignItems: 'center',
             }}>
-            <Text style={{fontSize: 50, color: '#ffffff80'}}>{index}</Text>
+            <Text style={{fontSize: 50, color: '#ffffff'}}>{index}</Text>
           </View>
         ))}
       </Animated.View>
