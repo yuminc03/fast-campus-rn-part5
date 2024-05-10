@@ -33,10 +33,12 @@ import ViewLayoutEvent from './src/chapter7/ViewLayoutEvent';
 
 import FlatlistCheckRenderItem from './src/chapter8/FlatlistCheckRenderItem';
 
+import YoutubeMusic from './src/youtubeMusic/YoutubeMusic';
+
 const App = () => {
   return (
     <SafeAreaProvider>
-      <FlatlistCheckRenderItem />
+      <YoutubeMusic />
     </SafeAreaProvider>
   );
 };
