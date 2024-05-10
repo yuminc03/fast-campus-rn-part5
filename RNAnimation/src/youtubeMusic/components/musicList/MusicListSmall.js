@@ -14,7 +14,7 @@ export default function MusicListSmall() {
         contentContainerStyle={{paddingHorizontal: 10}}>
         {[...Array(3)].map((val, idx) => {
           return (
-            <View style={{width: width * 0.92}}>
+            <View key={idx} style={{width: width * 0.92}}>
               {[...Array(4)].map((value, index) => {
                 return <MusicListSmallItem />;
               })}
