@@ -31,10 +31,12 @@ import PanresponderFontSlider from './src/chapter6/PanresponderFontSlider';
 
 import ViewLayoutEvent from './src/chapter7/ViewLayoutEvent';
 
+import FlatlistCheckRenderItem from './src/chapter8/FlatlistCheckRenderItem';
+
 const App = () => {
   return (
     <SafeAreaProvider>
-      <ViewLayoutEvent />
+      <FlatlistCheckRenderItem />
     </SafeAreaProvider>
   );
 };
