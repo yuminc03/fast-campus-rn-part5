@@ -10,8 +10,8 @@ export default function YoutubeMusic() {
   const [selectedCategory, setSelectedCategory] = useState();
 
   return (
-    <View style={{flex: 1}}>
-      <HeaderBackground />
+    <View style={{flex: 1, backgroundColor: '#111'}}>
+      <HeaderBackground selectedCategory={selectedCategory} />
       <LogoHeader />
       <CategoryHeader
         setSelectedCategory={setSelectedCategory}
