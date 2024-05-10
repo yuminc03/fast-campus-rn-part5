@@ -1,10 +1,13 @@
 import React, {useState} from 'react';
-import {View, Text, ScrollView} from 'react-native';
+import {View, ScrollView} from 'react-native';
 
-import Bottom from './components/Bottom';
-import CategoryHeader from './components/CategoryHeader';
-import HeaderBackground from './components/HeaderBackground';
-import LogoHeader from './components/LogoHeader';
+import Bottom from './components/bottom/Bottom';
+import CategoryHeader from './components/header/CategoryHeader';
+import HeaderBackground from './components/header/HeaderBackground';
+import LogoHeader from './components/header/LogoHeader';
+import MusicListSmall from './components/musicList/MusicListSmall';
+import MusicListMedium from './components/musicList/MusicListMedium';
+import MusicListLarge from './components/musicList/MusicListLarge';
 
 export default function YoutubeMusic() {
   const [selectedCategory, setSelectedCategory] = useState();
@@ -19,7 +22,9 @@ export default function YoutubeMusic() {
       />
       <ScrollView style={{borderWidth: 1}}>
         <View style={{height: 1000}}>
-          <Text>music list</Text>
+          <MusicListSmall />
+          <MusicListMedium />
+          <MusicListLarge />
         </View>
       </ScrollView>
       <Bottom />

@@ -21,7 +21,9 @@ export default function CategoryHeader({
         contentContainerStyle={{paddingHorizontal: 10}}>
         {category.map((value, index) => {
           return (
-            <TouchableOpacity onPress={() => onPressCategory(index)}>
+            <TouchableOpacity
+              key={index}
+              onPress={() => onPressCategory(index)}>
               <View
                 style={{
                   padding: 8,

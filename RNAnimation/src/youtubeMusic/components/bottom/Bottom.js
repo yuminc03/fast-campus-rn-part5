@@ -3,7 +3,7 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
-import {BOTTOM_HEIGHT} from '../utils';
+import {BOTTOM_HEIGHT} from '../../utils';
 
 export default function Bottom() {
   const insets = useSafeAreaInsets();

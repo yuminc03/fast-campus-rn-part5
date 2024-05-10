@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Image, TouchableOpacity} from 'react-native';
+import {View, Image, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -15,7 +15,7 @@ export default function LogoHeader() {
           alignItems: 'center',
         }}>
         <Image
-          source={require('../../assets/logo.png')}
+          source={require('../../../assets/logo.png')}
           style={{width: 90, height: 30}}
         />
         <View style={{flexDirection: 'row'}}>
