@@ -20,8 +20,8 @@ export default function YoutubeMusic() {
         setSelectedCategory={setSelectedCategory}
         selectedCategory={selectedCategory}
       />
-      <ScrollView style={{borderWidth: 1}}>
-        <View style={{height: 1000}}>
+      <ScrollView style={{}}>
+        <View style={{marginBottom: 100}}>
           <MusicListSmall />
           <MusicListMedium />
           <MusicListLarge />

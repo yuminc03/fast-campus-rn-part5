@@ -1,10 +1,87 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Image, Dimensions, ScrollView} from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {faker} from '@faker-js/faker';
+
+const {width} = Dimensions.get('window');
 
 export default function MusicListLarge() {
   return (
     <View>
-      <Text>MusicListLarge</Text>
+      <Title />
+      <ScrollView
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{paddingHorizontal: 10}}>
+        {[...Array(10)].map((val, idx) => {
+          return (
+            <View style={{marginRight: 20}} key={idx}>
+              <MusicListLargeItem />
+            </View>
+          );
+        })}
+      </ScrollView>
+    </View>
+  );
+}
+
+function MusicListLargeItem() {
+  return (
+    <View>
+      <Image
+        source={{uri: 'https://picsum.photos/200'}}
+        style={{width: width / 2.5, height: width / 2.5, borderRadius: 2}}
+      />
+      <Text
+        style={{
+          color: 'white',
+          marginTop: 5,
+          width: width / 2.5,
+          fontSize: 13,
+          height: 60,
+        }}
+        numberOfLines={2}>
+        {faker.music.songName()}
+      </Text>
+    </View>
+  );
+}
+
+function Title() {
+  return (
+    <View
+      style={{
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'flex-end',
+        paddingHorizontal: 10,
+        paddingVertical: 20,
+      }}>
+      <View style={{flexDirection: 'row', alignItems: 'center'}}>
+        <View
+          style={{
+            borderWidth: 1,
+            borderColor: '#999',
+            borderRadius: 100,
+            marginRight: 10,
+            padding: 3,
+          }}>
+          <Icon name="rewind" size={20} color="#999" />
+        </View>
+      </View>
+      <Text style={{color: 'white', fontSize: 28, fontWeight: 'bold'}}>
+        다시듣기
+      </Text>
+      <View
+        style={{
+          borderRadius: 100,
+          borderWidth: 1,
+          borderColor: '#ddd',
+          paddingHorizontal: 10,
+          paddingVertical: 4,
+        }}>
+        <Text style={{color: 'white', fontSize: 12}}>더보기</Text>
+      </View>
     </View>
   );
 }
