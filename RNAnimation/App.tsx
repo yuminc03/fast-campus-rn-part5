@@ -29,10 +29,12 @@ import PanresponderModal from './src/chapter6/PanresponderModal';
 import PanresponderBannerSlider from './src/chapter6/PanresponderBannerSlider';
 import PanresponderFontSlider from './src/chapter6/PanresponderFontSlider';
 
+import ViewLayoutEvent from './src/chapter7/ViewLayoutEvent';
+
 const App = () => {
   return (
     <SafeAreaProvider>
-      <PanresponderFontSlider />
+      <ViewLayoutEvent />
     </SafeAreaProvider>
   );
 };
