@@ -22,6 +22,7 @@ export default function YoutubeMusic() {
       <CategoryHeader
         setSelectedCategory={setSelectedCategory}
         selectedCategory={selectedCategory}
+        headerAnim={headerAnim}
       />
       <ScrollView
         scrollEventThrottle={1}

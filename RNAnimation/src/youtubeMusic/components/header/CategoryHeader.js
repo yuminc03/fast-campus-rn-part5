@@ -1,9 +1,10 @@
 import React from 'react';
-import {View, Text, ScrollView, TouchableOpacity} from 'react-native';
+import {View, Text, ScrollView, TouchableOpacity, Animated} from 'react-native';
 
 export default function CategoryHeader({
   selectedCategory,
   setSelectedCategory,
+  headerAnim,
 }) {
   const category = ['휴식', '에너지 충전', '집중', '운동', '출퇴근/등하교'];
 
@@ -14,10 +15,19 @@ export default function CategoryHeader({
 
   return (
     <View>
-      <ScrollView
+      <Animated.ScrollView
         showsHorizontalScrollIndicator={false}
         horizontal={true}
-        style={{flexDirection: 'row', paddingVertical: 20}}
+        style={{
+          flexDirection: 'row',
+          paddingVertical: 20,
+          paddingBottom: 5,
+          borderBottomWidth: headerAnim.interpolate({
+            inputRange: [0, 40],
+            outputRange: [0, 0.5],
+          }),
+          borderBottomColor: '#555',
+        }}
         contentContainerStyle={{paddingHorizontal: 10}}>
         {category.map((value, index) => {
           return (
@@ -45,7 +55,7 @@ export default function CategoryHeader({
             </TouchableOpacity>
           );
         })}
-      </ScrollView>
+      </Animated.ScrollView>
     </View>
   );
 }
