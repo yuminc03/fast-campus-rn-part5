@@ -8,19 +8,26 @@ import LogoHeader from './components/header/LogoHeader';
 import MusicListSmall from './components/musicList/MusicListSmall';
 import MusicListMedium from './components/musicList/MusicListMedium';
 import MusicListLarge from './components/musicList/MusicListLarge';
+import useYoutubeMusic from './useYoutubeMusic';
 
 export default function YoutubeMusic() {
   const [selectedCategory, setSelectedCategory] = useState();
+  const {onScrollEndDrag, onScrollBeginDrag, onScroll, headerAnim} =
+    useYoutubeMusic();
 
   return (
     <View style={{flex: 1, backgroundColor: '#111'}}>
       <HeaderBackground selectedCategory={selectedCategory} />
-      <LogoHeader />
+      <LogoHeader headerAnim={headerAnim} />
       <CategoryHeader
         setSelectedCategory={setSelectedCategory}
         selectedCategory={selectedCategory}
       />
-      <ScrollView style={{}}>
+      <ScrollView
+        scrollEventThrottle={1}
+        onScrollBeginDrag={onScrollBeginDrag}
+        onScroll={onScroll}
+        onScrollEndDrag={onScrollEndDrag}>
         <View style={{marginBottom: 100}}>
           <MusicListSmall />
           <MusicListMedium />
