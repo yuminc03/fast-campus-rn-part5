@@ -30,7 +30,9 @@ function MusicListMediumItem() {
   return (
     <View>
       <Image
-        source={{uri: 'https://picsum.photos/200'}}
+        source={{
+          uri: `https://picsum.photos/20${Math.floor(Math.random() * 10)}`,
+        }}
         style={{width: width / 4, height: width / 4, borderRadius: 2}}
       />
       <View

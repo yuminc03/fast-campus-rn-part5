@@ -21,6 +21,7 @@ export default function LogoHeader({headerAnim}) {
         <View
           style={{
             marginHorizontal: 14,
+            marginRight: 10,
             flexDirection: 'row',
             justifyContent: 'space-between',
             alignItems: 'center',

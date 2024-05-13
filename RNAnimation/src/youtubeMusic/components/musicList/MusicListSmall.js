@@ -98,7 +98,9 @@ function MusicListSmallItem() {
       }}>
       <View style={{flexDirection: 'row', flex: 1, flexShrink: 0}}>
         <Image
-          source={{uri: 'https://picsum.photos/50'}}
+          source={{
+            uri: `https://picsum.photos/5${Math.floor(Math.random() * 100)}`,
+          }}
           style={{width: 50, height: 50, borderRadius: 2}}
         />
         <View style={{marginLeft: 14, justifyContent: 'center', flex: 1}}>

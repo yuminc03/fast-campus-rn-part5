@@ -29,7 +29,9 @@ function MusicListLargeItem() {
   return (
     <View>
       <Image
-        source={{uri: 'https://picsum.photos/200'}}
+        source={{
+          uri: `https://picsum.photos/20${Math.floor(Math.random() * 100)}`,
+        }}
         style={{width: width / 2.5, height: width / 2.5, borderRadius: 2}}
       />
       <Text
