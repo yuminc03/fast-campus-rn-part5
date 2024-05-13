@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {View, ScrollView} from 'react-native';
+import React, {useRef, useState} from 'react';
+import {View, ScrollView, Animated} from 'react-native';
 
 import Bottom from './components/bottom/Bottom';
 import CategoryHeader from './components/header/CategoryHeader';
@@ -20,6 +20,7 @@ export default function YoutubeMusic() {
     headerAnim,
     headerBgAnim,
   } = useYoutubeMusic();
+  const playlistAnim = useRef(new Animated.Value(0)).current;
 
   return (
     <View style={{flex: 1, backgroundColor: '#111'}}>
@@ -44,8 +45,8 @@ export default function YoutubeMusic() {
           <MusicListLarge />
         </View>
       </ScrollView>
-      <PlayList />
-      <Bottom />
+      <PlayList playlistAnim={playlistAnim} />
+      <Bottom playlistAnim={playlistAnim} />
     </View>
   );
 }
