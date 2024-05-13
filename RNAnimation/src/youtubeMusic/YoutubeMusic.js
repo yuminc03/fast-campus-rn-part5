@@ -12,12 +12,20 @@ import useYoutubeMusic from './useYoutubeMusic';
 
 export default function YoutubeMusic() {
   const [selectedCategory, setSelectedCategory] = useState();
-  const {onScrollEndDrag, onScrollBeginDrag, onScroll, headerAnim} =
-    useYoutubeMusic();
+  const {
+    onScrollEndDrag,
+    onScrollBeginDrag,
+    onScroll,
+    headerAnim,
+    headerBgAnim,
+  } = useYoutubeMusic();
 
   return (
     <View style={{flex: 1, backgroundColor: '#111'}}>
-      <HeaderBackground selectedCategory={selectedCategory} />
+      <HeaderBackground
+        selectedCategory={selectedCategory}
+        headerBgAnim={headerBgAnim}
+      />
       <LogoHeader headerAnim={headerAnim} />
       <CategoryHeader
         setSelectedCategory={setSelectedCategory}

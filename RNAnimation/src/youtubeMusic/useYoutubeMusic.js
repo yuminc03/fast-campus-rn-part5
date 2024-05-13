@@ -6,6 +6,7 @@ export default function useYoutubeMusic() {
   // header
   const showHeaderRef = useRef(true);
   const headerAnim = useRef(new Animated.Value(0)).current;
+  const headerBgAnim = useRef(new Animated.Value(0)).current;
 
   const onScrollBeginDrag = e => {
     const y = e.nativeEvent.contentOffset.y;
@@ -25,6 +26,9 @@ export default function useYoutubeMusic() {
     if (dy > -40 && dy < 0 && !showHeaderRef.current) {
       headerAnim.setValue(40 + dy);
     }
+
+    // header background 애니메이션
+    headerBgAnim.setValue(y);
   };
   const onScrollEndDrag = e => {
     const y = e.nativeEvent.contentOffset.y;
@@ -54,5 +58,6 @@ export default function useYoutubeMusic() {
     onScroll,
     onScrollEndDrag,
     headerAnim,
+    headerBgAnim,
   };
 }

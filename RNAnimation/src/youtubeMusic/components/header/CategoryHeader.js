@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, ScrollView, TouchableOpacity, Animated} from 'react-native';
+import {View, Text, TouchableOpacity, Animated} from 'react-native';
 
 export default function CategoryHeader({
   selectedCategory,
