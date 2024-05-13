@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 
 import PlayListMini from './PlayListMini';
-import PlayListFull from './PlayListFull';
+import PlayListFullTop from './playlistFull/PlaylistFullTop';
 
 const {width, height} = Dimensions.get('window');
 
@@ -86,19 +86,7 @@ export default function PlayList({playlistAnim}) {
         }),
       }}>
       <View>
-        <Animated.View
-          style={{
-            height: playlistAnim.interpolate({
-              inputRange: [height / 2, height],
-              outputRange: [0, 100],
-            }),
-            opacity: playlistAnim.interpolate({
-              inputRange: [height / 2, height],
-              outputRange: [0, 1],
-            }),
-          }}>
-          <Text style={{borderWidth: 1, height: '100%'}}>Top</Text>
-        </Animated.View>
+        <PlayListFullTop playlistAnim={playlistAnim} />
         <Animated.View
           style={{
             justifContent: 'center',
@@ -119,8 +107,8 @@ export default function PlayList({playlistAnim}) {
         <Animated.View
           style={{
             height: playlistAnim.interpolate({
-              inputRange: [height / 2, height],
-              outputRange: [0, 250],
+              inputRange: [0, height / 2, height],
+              outputRange: [0, 0, 250],
             }),
             opacity: playlistAnim.interpolate({
               inputRange: [height / 2, height],
