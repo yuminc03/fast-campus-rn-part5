@@ -30,9 +30,9 @@ function MusicListLargeItem() {
     <View>
       <Image
         source={{
-          uri: `https://picsum.photos/20${Math.floor(Math.random() * 100)}`,
+          uri: `https://picsum.photos/20${Math.floor(Math.random() * 10)}`,
         }}
-        style={{width: width / 2.5, height: width / 2.5, borderRadius: 2}}
+        style={{width: width / 2.5, height: width / 2.5, borderRadius: 4}}
       />
       <Text
         style={{
@@ -70,10 +70,10 @@ function Title() {
           }}>
           <Icon name="rewind" size={20} color="#999" />
         </View>
+        <Text style={{color: 'white', fontSize: 28, fontWeight: 'bold'}}>
+          다시듣기
+        </Text>
       </View>
-      <Text style={{color: 'white', fontSize: 28, fontWeight: 'bold'}}>
-        다시듣기
-      </Text>
       <View
         style={{
           borderRadius: 100,
