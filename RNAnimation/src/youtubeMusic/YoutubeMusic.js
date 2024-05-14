@@ -10,9 +10,11 @@ import MusicListMedium from './components/musicList/MusicListMedium';
 import MusicListLarge from './components/musicList/MusicListLarge';
 import PlayList from './components/playlist/PlayList';
 import useYoutubeMusic from './useYoutubeMusic';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 export default function YoutubeMusic() {
   const [selectedCategory, setSelectedCategory] = useState();
+  const insets = useSafeAreaInsets();
   const {
     onScrollEndDrag,
     onScrollBeginDrag,
@@ -45,7 +47,7 @@ export default function YoutubeMusic() {
           <MusicListLarge />
         </View>
       </ScrollView>
-      <PlayList playlistAnim={playlistAnim} />
+      <PlayList playlistAnim={playlistAnim} bottomInset={insets.bottom} />
       <Bottom playlistAnim={playlistAnim} />
     </View>
   );

@@ -11,10 +11,11 @@ import {
 import PlayListMini from './PlayListMini';
 import PlayListFullTop from './playlistFull/PlaylistFullTop';
 import PlaylistFullBottom from './playlistFull/PlaylistFullBottom';
+import PlaylistFullMid from './playlistFull/PlaylistFullMid';
 
 const {width, height} = Dimensions.get('window');
 
-export default function PlayList({playlistAnim}) {
+export default function PlayList({playlistAnim, bottomInset}) {
   const playlistRef = useRef('mini'); // mini, full
   const panResponder = useRef(
     PanResponder.create({
@@ -104,19 +105,7 @@ export default function PlayList({playlistAnim}) {
             style={{width: '100%', height: '100%'}}
           />
         </Animated.View>
-        <Animated.View
-          style={{
-            height: playlistAnim.interpolate({
-              inputRange: [0, height / 2, height],
-              outputRange: [0, 0, 250],
-            }),
-            opacity: playlistAnim.interpolate({
-              inputRange: [height / 2, height],
-              outputRange: [0, 1],
-            }),
-          }}>
-          <Text style={{borderWidth: 1, height: 250}}>Middle</Text>
-        </Animated.View>
+        <PlaylistFullMid playlistAnim={playlistAnim} />
       </View>
       <Animated.View
         style={{
@@ -128,7 +117,10 @@ export default function PlayList({playlistAnim}) {
         }}>
         <PlayListMini />
       </Animated.View>
-      <PlaylistFullBottom playlistAnim={playlistAnim} />
+      <PlaylistFullBottom
+        playlistAnim={playlistAnim}
+        bottomInset={bottomInset}
+      />
     </Animated.View>
   );
 }

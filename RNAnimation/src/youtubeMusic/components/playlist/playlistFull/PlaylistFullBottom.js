@@ -1,12 +1,12 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View, Text, Animated, Dimensions, TouchableOpacity} from 'react-native';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 const {width, height} = Dimensions.get('window');
 
-export default function PlaylistFullBottom({playlistAnim}) {
-  const insets = useSafeAreaInsets();
-
+export default function PlaylistFullBottom({playlistAnim, bottomInset}) {
+  useEffect(() => {
+    console.log('bottomInset:', bottomInset);
+  }, [bottomInset]);
   return (
     <Animated.View
       style={{
@@ -14,10 +14,10 @@ export default function PlaylistFullBottom({playlistAnim}) {
         width,
         height: playlistAnim.interpolate({
           inputRange: [height / 2, height],
-          outputRange: [0, 70 + insets.bottom],
+          outputRange: [0, 100 + bottomInset],
         }),
-        borderWidth: 1,
-        bottom: playlistAnim.interpolate({
+        bottom: 0,
+        opacity: playlistAnim.interpolate({
           inputRange: [height / 2, height],
           outputRange: [0, 1],
         }),
