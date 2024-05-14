@@ -35,10 +35,12 @@ import FlatlistCheckRenderItem from './src/chapter8/FlatlistCheckRenderItem';
 
 import YoutubeMusic from './src/youtubeMusic/YoutubeMusic';
 
+import MobilePay from './src/mobilePay/MobilePay';
+
 const App = () => {
   return (
     <SafeAreaProvider>
-      <YoutubeMusic />
+      <MobilePay />
     </SafeAreaProvider>
   );
 };
