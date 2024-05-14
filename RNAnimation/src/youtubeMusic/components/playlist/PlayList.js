@@ -10,6 +10,7 @@ import {
 
 import PlayListMini from './PlayListMini';
 import PlayListFullTop from './playlistFull/PlaylistFullTop';
+import PlaylistFullBottom from './playlistFull/PlaylistFullBottom';
 
 const {width, height} = Dimensions.get('window');
 
@@ -89,7 +90,6 @@ export default function PlayList({playlistAnim}) {
         <PlayListFullTop playlistAnim={playlistAnim} />
         <Animated.View
           style={{
-            justifContent: 'center',
             width: playlistAnim.interpolate({
               inputRange: [0, height / 2, height],
               outputRange: [50, width * 0.8, width * 0.8],
@@ -118,7 +118,6 @@ export default function PlayList({playlistAnim}) {
           <Text style={{borderWidth: 1, height: 250}}>Middle</Text>
         </Animated.View>
       </View>
-      {/*   <PlayListFull /> */}
       <Animated.View
         style={{
           flex: 1,
@@ -129,22 +128,7 @@ export default function PlayList({playlistAnim}) {
         }}>
         <PlayListMini />
       </Animated.View>
-      <Animated.View
-        style={{
-          position: 'absolute',
-          width,
-          height: playlistAnim.interpolate({
-            inputRange: [height / 2, height],
-            outputRange: [0, 100],
-          }),
-          borderWidth: 1,
-          bottom: playlistAnim.interpolate({
-            inputRange: [height / 2, height],
-            outputRange: [0, 1],
-          }),
-        }}>
-        <Text>Bottom</Text>
-      </Animated.View>
+      <PlaylistFullBottom playlistAnim={playlistAnim} />
     </Animated.View>
   );
 }

@@ -42,7 +42,7 @@ function BottomItem({name, title}) {
   return (
     <TouchableOpacity style={{flex: 1, alignItems: 'center'}}>
       <View style={{marginVertical: 4}}>
-        <Icon name={name} color="white" size={24} />
+        <Icon name={name} color="white" size={20} />
       </View>
       <Text style={{color: 'white', fontSize: 12}}>{title}</Text>
     </TouchableOpacity>
